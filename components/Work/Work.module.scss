@@ -1,0 +1,118 @@
+@use "../../styles/colors" as color;
+@use "../../styles/breakpoints" as breakpoint;
+
+.work {
+  width: 100%;
+  background-color: color.$green;
+  text-align: right;
+
+  .container {
+    padding: 6rem 1.5rem 10rem;
+    position: relative;
+  }
+
+  @include breakpoint.sm {
+
+    .container {
+      padding: 8rem 2rem 10rem;
+    }
+  }
+
+  @include breakpoint.lg {
+
+    .container {
+      padding:8rem 8rem 22rem 0;
+    }
+  }
+
+  @include breakpoint.xl {
+
+    .container {
+      padding:8rem 10rem 22rem 0;
+    }
+  }
+}
+
+.content {
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.infoContainer {
+  position: absolute;
+  background-color: color.$pink;
+  color: color.$dark;
+  padding: 4rem 1.5rem;
+  top: 5rem;
+  left: 0;
+  margin: 0 1.5rem;
+  // box-shadow: 1px 1px 6px color.$dark;
+
+  button {
+    position: absolute;
+    padding: 0.5rem;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    border-radius: 9px;
+    background: #ffe3df;
+    box-shadow: 3px 3px 6px #d9c1be, -3px -3px 6px #ffffff;
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      border-radius: 9px;
+      background: #ffe3df;
+      box-shadow: inset 3px 3px 6px #d9c1be, inset -3px -3px 6px #ffffff;
+    }
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: lighter;
+  }
+
+  p {
+    font-family: code-saver, sans-serif;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9px;
+    background: #ffe3df;
+    box-shadow: 9px 9px 18px #d9c1be, -9px -9px 18px #ffffff;
+    svg {
+      margin-left: 0.5rem;
+    }
+
+    &:hover,
+    &:active {
+      cursor: pointer;
+      border-radius: 9px;
+      background: #ffe3df;
+      box-shadow: inset 9px 9px 18px #d9c1be, inset -9px -9px 18px #ffffff;
+    }
+  }
+
+  @include breakpoint.md {
+    width: 50%;
+  }
+
+  @include breakpoint.lg {
+    text-align: left;
+    top: 8rem;
+    margin: 0 4rem;
+    padding: 4rem 3rem;
+  }
+
+  @include breakpoint.xl {
+    top: 12rem;
+  }
+}

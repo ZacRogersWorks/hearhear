@@ -1,0 +1,60 @@
+@use '../../styles/colors' as color;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  &:not(:first-child) {
+    margin-top: 1rem;
+  }
+}
+
+.accordionHeader {
+  display: flex;
+  justify-content: flex-end;
+
+  h3 {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+  }
+
+  button {
+    background: none;
+    border: none;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  
+}
+
+.listContainer {
+  padding-right: 4rem;
+  margin-top: .5rem;
+
+  ol {
+    font-family: bdr-mono, sans-serif;
+    list-style-type: decimal-leading-zero;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  ol li:not(:first-child) {
+    margin-top: .25rem;
+  }
+
+  ol li:hover, button {
+    cursor: pointer;
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-family: code-saver, sans-serif;
+    font-size: 1.5rem;
+    color: color.$dark;
+  }
+}

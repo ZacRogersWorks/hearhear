@@ -1,0 +1,162 @@
+@use "../../styles/colors" as color;
+@use "../../styles/breakpoints" as breakpoint;
+
+.hero {
+  position: relative;
+  width: 100%;
+  color: color.$dark;
+  background-color: white;
+
+  .imageContainer {
+    pointer-events: none;
+  }
+
+  .imageContainer img{
+    position: absolute;
+    left: -50%;
+    bottom: -5rem;
+    height: 33%;
+    width: auto;
+    mix-blend-mode: exclusion;
+  }
+
+  .container {
+    padding: 2rem 1.5rem 4rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .location {
+      align-self: flex-start;
+    }
+
+    .headingCaption {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      font-size: 1rem;
+      margin: .5rem .6rem;
+    }
+
+    .byLevi {
+      margin-top: 1rem;
+      font-weight: bold;
+      align-self: flex-end;
+      font-size: 1.5rem;
+
+      span {
+        font-size: 1rem;
+        font-weight: light;
+      }
+    }
+
+    .bio {
+      font-family: code-saver, sans-serif;
+      text-align: right;
+      margin-top: 1.5rem;
+    }
+  }
+
+  .flexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 7.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height:6.5rem;
+    font-weight: lighter;
+    color: color.$dark;
+    padding: 0;
+    margin-left: 1rem;
+
+    span {
+      padding: 0;
+    }
+
+    span:not(:first-child) {
+      color: color.$pink;
+    }
+  }
+
+  @include breakpoint.xs {
+      
+    .imageContainer img {
+      height: 50%;
+    }
+
+    .container {
+      .location {
+        align-self: flex-end;
+      }
+
+      .bio {
+        width: 66%;
+        align-self: flex-end;
+      }
+    }
+    
+    h1 {
+      align-self: flex-end;
+      margin-right: -1rem;
+      text-align: end;
+    }
+  }
+
+  @include breakpoint.sm {
+    .imageContainer img {
+      height: 60%;
+      left: -10rem;
+    }
+
+    .container {
+      padding: 4rem 2rem 4rem;
+    }
+  }
+
+  @include breakpoint.lg {
+
+    .imageContainer img {
+      height: 80%
+    }
+
+    .container {
+      padding:4rem 8rem 4rem 0;
+
+      .bio {
+        width: 33%;
+      }
+    }
+
+    h1 {
+      flex-direction: row;
+      font-size: 5rem;
+    }
+  }
+
+  @include breakpoint.xl {
+    .container {
+      padding:6rem 10rem 4rem 0;
+    }
+
+    .imageContainer img {
+      left: 4rem;
+      height: 85%;
+    }
+  }
+
+  @include breakpoint.xxl {
+    .imageContainer img {
+      height: 110%;
+      bottom: -10rem;
+    }
+
+    
+  }
+}

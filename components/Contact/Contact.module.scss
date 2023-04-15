@@ -1,0 +1,159 @@
+@use "../../styles/colors" as color;
+@use "../../styles/breakpoints" as breakpoint;
+
+.contact {
+  padding: 3rem 1.5rem;
+  text-align: right;
+  background-color: color.$dark;
+  color: color.$pink;
+  display: flex;
+  gap: 4rem;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @include breakpoint.lg {
+      width: 66%;
+    }
+
+    @include breakpoint.xl {
+      width: 50%;
+    }
+  }
+
+  .gallery {
+    width: 800px;
+    height: 600px;
+    display: none;
+    position: relative;
+    mix-blend-mode: luminosity;
+    margin: -12rem 0 0 4rem;
+
+    .image {
+      width: 25%;
+      overflow: hidden;
+      transition: all .5s ease;
+
+      img {
+        object-fit: cover;
+        position: relative !important;
+      }
+    }
+
+    .image:hover {
+      cursor: pointer;
+    }
+
+    .image.expanded {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left:0;
+      z-index: 10;
+    }
+  }
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  @include breakpoint.sm {
+    padding: 4rem 2rem 4rem;
+  }
+
+  @include breakpoint.lg {
+    padding: 4rem 8rem 4rem 0;
+
+    .gallery {
+      display: flex;
+    }
+  }
+
+  @include breakpoint.xl {
+    padding: 6rem 10rem 4rem 0;
+  }
+}
+
+.form {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  p {
+    line-height: 2rem;
+    font-family: code-saver, sans-serif;
+  }
+
+  input,
+  textarea {
+    margin: 0.5rem 1rem 1rem;
+    padding: 0.5rem 1rem 0.25rem;
+    font-family: code-saver, sans-serif;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    border-bottom: 2px dashed color.$pink;
+    color: color.$pink;
+    text-transform: uppercase;
+
+    &:focus {
+      outline-color: color.$green;
+    }
+
+    &::placeholder {
+      color: color.$green;
+      opacity: 0.5;
+    }
+  }
+
+  input {
+    text-align: center;
+    display: inline-block;
+    width: 66%;
+  }
+
+  textarea {
+    text-align: right;
+    width: 100%;
+    height: 10rem;
+    padding-top: 1.5rem;
+    margin: 0.5rem 0;
+  }
+
+  button {
+    background: none;
+    border: 2px solid color.$pink;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    color: color.$pink;
+    box-shadow: 2px 2px 4px black;
+
+    svg {
+      margin-left: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  @include breakpoint.sm {
+    input {
+      width: 50%;
+    }
+  }
+
+  @include breakpoint.md {
+    input {
+      display: inline-block;
+      width: 40%;
+    }
+  }
+}
