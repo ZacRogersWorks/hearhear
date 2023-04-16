@@ -1,10 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useAnimationControls, useInView } from "framer-motion";
 
 import styles from "./Contact.module.scss";
 import Image from "next/image";
 
+const variants = {
+  parent: {
+    initial: {},
+    animate: {
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.2,
+      },
+    },
+  },
+  children: {
+    initial: {
+      opacity: 0,
+      y: 50,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 10,
+        stiffness: 70,
+      },
+    },
+  },
+};
+
 const Contact = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.15 });
+  const controls = useAnimationControls();
+
+  useEffect(() => {
+    if (isInView) controls.start("animate");
+  }, [isInView]);
 
   const handleImageClick = (index) => {
     if (expandedIndex === index) {
@@ -22,27 +57,44 @@ const Contact = () => {
   ];
 
   return (
-    <section className={styles.contact}>
+    <motion.section
+      className={styles.contact}
+      ref={ref}
+      variants={variants.parent}
+      initial="initial"
+      animate={controls}
+    >
       <div className={styles.gallery}>
-      {images.map((image, index) => (
-        <div
-          key={index}
-          className={`${styles.image} ${
-            expandedIndex === index ? styles.expanded : ''
-          }`}
-          onClick={() => handleImageClick(index)}
-        >
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-          />
-        </div>
-      ))}
+        {images.map((image, index) => (
+          <motion.div
+            variants={variants.children}
+            key={index}
+            className={`${styles.image} ${
+              expandedIndex === index ? styles.expanded : ""
+            }`}
+            onClick={() => handleImageClick(index)}
+          >
+            <Image src={image.src} alt={image.alt} fill />
+          </motion.div>
+        ))}
       </div>
       <div className={styles.content}>
-        <h2>CONTACT</h2>
-        <form className={styles.form}>
+        <motion.h2 variants={variants.children}>CONTACT</motion.h2>
+        <motion.form
+          className={styles.form}
+          variants={variants.children}
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/success"
+        >
+          <p className={styles.hidden}>
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </p>
+          <input type="hidden" name="form-name" value="contact" />
           <p>
             Hi, my name is{" "}
             <input type="text" id="name" name="name" placeholder="Name" />
@@ -58,7 +110,7 @@ const Contact = () => {
             and you can contact me back at{" "}
             <input type="email" id="email" name="email" placeholder="email" />
           </p>
-          <button type="submit">
+          <motion.button type="submit" variants={variants.children}>
             SEND
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -74,10 +126,10 @@ const Contact = () => {
                 fill="#e8ff45"
               />
             </svg>
-          </button>
-        </form>
+          </motion.button>
+        </motion.form>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

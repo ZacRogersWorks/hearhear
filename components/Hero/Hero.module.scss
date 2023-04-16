@@ -57,6 +57,10 @@
       text-align: right;
       margin-top: 1.5rem;
     }
+
+    a {
+      text-decoration: underline;
+    }
   }
 
   .flexContainer {
@@ -123,7 +127,8 @@
   @include breakpoint.lg {
 
     .imageContainer img {
-      height: 80%
+      height: auto;
+      width: 66%;
     }
 
     .container {
@@ -147,13 +152,14 @@
 
     .imageContainer img {
       left: 4rem;
-      height: 85%;
+      height: auto;
+
     }
   }
 
   @include breakpoint.xxl {
     .imageContainer img {
-      height: 110%;
+      height: auto;
       bottom: -10rem;
     }
 

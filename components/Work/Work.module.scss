@@ -21,11 +21,11 @@
   @include breakpoint.lg {
 
     .container {
-      padding:8rem 8rem 22rem 0;
+      padding:8rem 8rem 23rem 0;
     }
   }
 
-  @include breakpoint.xl {
+  @include breakpoint.xxl {
 
     .container {
       padding:8rem 10rem 22rem 0;
@@ -52,21 +52,17 @@
 
   button {
     position: absolute;
-    padding: 0.5rem;
+    padding: .6rem 0.5rem .5rem;
     right: 1rem;
     top: 1rem;
     background: none;
     border: none;
-    border-radius: 9px;
-    background: #ffe3df;
-    box-shadow: 3px 3px 6px #d9c1be, -3px -3px 6px #ffffff;
+    box-shadow: .5px .5px 3px color.$dark;
 
     &:hover,
     &:active {
       cursor: pointer;
-      border-radius: 9px;
-      background: #ffe3df;
-      box-shadow: inset 3px 3px 6px #d9c1be, inset -3px -3px 6px #ffffff;
+      box-shadow: .5px .5px 1px color.$dark;
     }
   }
 
@@ -83,11 +79,10 @@
   }
 
   a {
+    display: inline-block;
     font-size: 1.25rem;
     padding: 0.5rem 1rem;
-    border-radius: 9px;
-    background: #ffe3df;
-    box-shadow: 9px 9px 18px #d9c1be, -9px -9px 18px #ffffff;
+    box-shadow: .5px .5px 3px color.$dark;
     svg {
       margin-left: 0.5rem;
     }
@@ -95,9 +90,8 @@
     &:hover,
     &:active {
       cursor: pointer;
-      border-radius: 9px;
       background: #ffe3df;
-      box-shadow: inset 9px 9px 18px #d9c1be, inset -9px -9px 18px #ffffff;
+      box-shadow: .5px .5px 1px color.$dark;
     }
   }
 

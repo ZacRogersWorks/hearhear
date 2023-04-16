@@ -1,15 +1,99 @@
-import React, { useState } from "react";
-import { links } from "@/data/data";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView, useAnimationControls, AnimatePresence } from "framer-motion";
 
+import { links } from "@/data/data";
 import styles from "./Work.module.scss";
 import Accordion from "./Accordion";
+
+const variants = {
+  parent: {
+    initial: {
+    },
+    animate: {
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: .2
+      }
+    }
+  },
+  children: {
+    initial: {
+      opacity: 0,
+      y: 50
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 10,
+        stiffness: 70,
+      }
+    },
+  },
+  infoContainer: {
+    initial: { 
+      opacity: 0,
+    x: 50},
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        when: "beforeChildren",
+        duration: .3,
+        ease: "easeOut",
+      }
+    },
+    exit: {
+      x: 50,
+      opacity: 0,
+      transition: {
+        duration: .3,
+        ease: "easeOut",
+      }
+    }
+  },
+  infoContainerButtons: {
+    initial: { scale: 0},
+    animate: { 
+      scale: 1,
+      transition: {
+        delay: .5,
+        type: "spring",
+        damping: 10,
+        stiffness: 70
+      }
+    }
+  },
+  infoContainerText: {
+    initial: { opacity: 0},
+    animate: {
+      opacity: 1,
+      transition: {
+        
+        duration: .5,
+        ease: "easeOut"
+      }
+    }
+  }
+}
 
 const Work = () => {
   const [selectedExample, setSelectedExample] = useState(null);
   const [activeAccordion, setActiveAccordion] = useState(null);
+  const ref = useRef(null)
+  const isInView = useInView(ref, {amount: .4});
+  const controls = useAnimationControls()
+
+  useEffect(() => {
+    if (isInView) controls.start("animate")
+  }, [isInView])
+
 
   const handleExampleClick = (data) => {
-    setSelectedExample(data);
+    setSelectedExample(null);
+    setTimeout(() => setSelectedExample(data), 300)
+    
   };
 
   const handleExit = () => {
@@ -26,11 +110,12 @@ const Work = () => {
 
   return (
     <section className={styles.work}>
-      <div className={styles.container}>
+      <motion.div className={styles.container} ref={ref} variants={variants.parent} initial="initial" animate={controls}>
+        <AnimatePresence>
         {selectedExample && (
-          <div className={styles.infoContainer}>
+          <motion.div className={styles.infoContainer} variants={variants.infoContainer} initial="initial" animate="animate" exit="exit">
             <div className={styles.infoContent}>
-              <button onClick={handleExit}>
+              <motion.button onClick={handleExit} variants={variants.infoContainerButtons}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="18.323"
@@ -45,10 +130,10 @@ const Work = () => {
                     transform="translate(-2.571 -1.928)"
                   />
                 </svg>
-              </button>
-              <h4>{selectedExample.title}</h4>
-              <p>{selectedExample.desc}</p>
-              <a href={selectedExample.link} target="_blank">
+              </motion.button>
+              <motion.h4 variants={variants.infoContainerText}>{selectedExample.title}</motion.h4>
+              <motion.p variants={variants.infoContainerText}>{selectedExample.desc}</motion.p>
+              <motion.a href={selectedExample.link} target="_blank" variants={variants.infoContainerButtons}>
                 {selectedExample.linkName}{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,12 +181,13 @@ const Work = () => {
                     />
                   </g>
                 </svg>
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
         <div className={styles.content}>
-          <h2>SELECTED WORKS</h2>
+          <motion.h2 variants={variants.children}>SELECTED WORKS</motion.h2>
           <Accordion
             header={"Production"}
             data={links.production}
@@ -124,7 +210,7 @@ const Work = () => {
             setActive={setActive}
           />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

@@ -1,6 +1,63 @@
 import React, { useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import styles from "./Accordion.module.scss";
+
+const variants = {
+  children: {
+    initial: {
+      opacity: 0,
+      y: 50
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 10,
+        stiffness: 70,
+      }
+    }
+  },
+  linkContainer: {
+    initial: {
+      scaleY: 0
+    },
+    animate: {
+      scaleY: 1,
+      transition: {
+        when: "beforeChildren",
+        duration: .1,
+        ease: "easeOut",
+        staggerChildren: .2
+      }
+    },
+  },
+  links: {
+    initial: {
+      y: -30,
+      opacity: 0
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 10,
+        stiffness: 90
+      }
+    },
+    exit: {
+      y: -30,
+      opacity: 0,
+      transition: {
+        type: "spring",
+        damping: 10,
+        stiffness: 90
+      }
+    }
+  }
+}
 
 const Accordion = ({
   header,
@@ -10,7 +67,8 @@ const Accordion = ({
   setActive,
 }) => {
   return (
-    <div className={styles.accordion}>
+    
+    <motion.div className={styles.accordion} variants={variants.children}>
       <div className={styles.accordionHeader} onClick={() => setActive(header)}>
         <h3>{header}</h3>
         <button
@@ -49,22 +107,27 @@ const Accordion = ({
           )}
         </button>
       </div>
+      <AnimatePresence>
       {activeAccordion === header && (
-        <div className={styles.listContainer}>
-          <ol dir="rtl" className={styles.exampleList}>
+       
+        <div className={styles.listContainer} >
+           
+          <motion.ol dir="rtl" className={styles.exampleList} variants={variants.linkContainer} initial="initial" animate="animate" exit="exit">
             {data.map((entry) => {
               return (
-                <li key={entry.id}>
+                <motion.li key={entry.id} variants={variants.links} exit={{y: -5, opacity: 0}}>
                   <button onClick={() => handleClick(entry)}>
                     {entry.title}
                   </button>
-                </li>
+                </motion.li>
               );
             })}
-          </ol>
+          </motion.ol>
+          
         </div>
       )}
-    </div>
+      </AnimatePresence>
+    </motion.div>
   );
 };
 
