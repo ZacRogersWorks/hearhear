@@ -6,19 +6,18 @@ import Image from "next/image";
 
 const variants = {
   parent: {
-    initial: {
-    },
+    initial: {},
     animate: {
       transition: {
         when: "beforeChildren",
-        staggerChildren: .2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   },
   children: {
     initial: {
       opacity: 0,
-      y: 50
+      y: 50,
     },
     animate: {
       opacity: 1,
@@ -27,10 +26,10 @@ const variants = {
         type: "spring",
         damping: 10,
         stiffness: 70,
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 
 const Hero = () => {
   return (
@@ -45,8 +44,15 @@ const Hero = () => {
         />
       </div>
       <div className={styles.container}>
-        <motion.div className={styles.flexContainer} variants={variants.parent} initial="initial" animate="animate">
-          <motion.p className={styles.location} variants={variants.children}>Lancaster, PA</motion.p>
+        <motion.div
+          className={styles.flexContainer}
+          variants={variants.parent}
+          initial="initial"
+          animate="animate"
+        >
+          <motion.p className={styles.location} variants={variants.children}>
+            Lancaster, PA
+          </motion.p>
           <h1>
             <span>HEAR</span>
             <span>HEAR</span>
@@ -56,26 +62,22 @@ const Hero = () => {
             <motion.p variants={variants.children}>TRACKING</motion.p>
             <motion.p variants={variants.children}>MIXING</motion.p>
           </div>
-          <motion.p  variants={variants.children}className={styles.byLevi}>
+          <motion.p variants={variants.children} className={styles.byLevi}>
             <span>By</span> Levi Schlosser
           </motion.p>
-          <motion.p  variants={variants.children}className={styles.bio}>
-            Striving to create unique sounds that have soul and personality. I
-            love getting projects to the finish line whether I&apos;m tracking and
-            mixing, creating music for visual storytellers, or producing a track
-            from start to finish.
-            I feel that I do my best work in an environment where people know
-            what they want and aren’t afraid to explore and craft it - nothing
-            is more rewarding then catching and interpreting someone’s vision
-            for a song.
+          <motion.p variants={variants.children} className={styles.bio}>
+            I get quite the dopamine boost from tracking, mixing, and creating
+            music for visual storytellers. After all music should make us come
+            alive! For me, nothing is more rewarding than catching and
+            interpreting someone else’s vision for their song and helping them
+            reach that goal quickly and creatively. That is the heart of Hear
+            Hear Productions. I hope that I
+            can help put your story and your song in the best light.
             <br />
             <br />
             Currently working at a private owner-operated analog recording
             studio,{" "}
-            <a
-              href="http://www.thesugartank.com/"
-              target="_blank"
-            >
+            <a href="http://www.thesugartank.com/" target="_blank">
               The Sugar Tank,
             </a>{" "}
             located in Lancaster, Pa.

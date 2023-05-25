@@ -74,7 +74,7 @@ const Contact = () => {
             }`}
             onClick={() => handleImageClick(index)}
           >
-            <Image src={image.src} alt={image.alt} fill />
+            <Image src={image.src} alt={image.alt} fill sizes="(max-width: 768px) 25vw, (max-width: 1200px) 50vw"/>
           </motion.div>
         ))}
       </div>

@@ -117,7 +117,7 @@ const Accordion = ({
               return (
                 <motion.li key={entry.id} variants={variants.links} exit={{y: -5, opacity: 0}}>
                   <button onClick={() => handleClick(entry)}>
-                    {entry.title}
+                    {entry.name}
                   </button>
                 </motion.li>
               );
