@@ -163,9 +163,9 @@ const Work = () => {
                           {track.title}{" "}
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            width="18.45"
-                            height="18.45"
-                            viewBox="0 0 18.45 18.45"
+                            width="18"
+                            height="18"
+                            // viewBox="0 0 18.45 18.45"
                           >
                             <g
                               id="Icon_feather-external-link"

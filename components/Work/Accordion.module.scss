@@ -45,12 +45,17 @@
     font-weight: bold;
   }
 
+  li {
+    transition: color ease-out .5s;
+  }
+
   ol li:not(:first-child) {
     margin-top: .25rem;
   }
 
   ol li:hover, button {
     cursor: pointer;
+    color: color.$blue;
   }
 
   button {
