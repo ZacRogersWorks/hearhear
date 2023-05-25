@@ -21,48 +21,61 @@
   @include breakpoint.lg {
 
     .container {
-      padding:8rem 8rem 23rem 0;
+      padding:8rem 8rem 12rem 0;
     }
   }
 
   @include breakpoint.xxl {
 
     .container {
-      padding:8rem 10rem 22rem 0;
+      padding:8rem 10rem 12rem 0;
     }
   }
 }
 
 .content {
+  position: relative;
+  z-index: 1;
   h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
 }
 
+.modalBackground {
+  position: fixed;
+  overflow-y: scroll;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+}
+
 .infoContainer {
-  position: absolute;
+  position: relative;
   background-color: color.$pink;
   color: color.$dark;
-  padding: 4rem 1.5rem;
-  top: 5rem;
-  left: 0;
-  margin: 0 1.5rem;
-  // box-shadow: 1px 1px 6px color.$dark;
+  padding: 3rem 1.5rem 2rem;
+  margin: 2rem 1.5rem;
+  box-shadow: 4px 4px 6px color.$dark;
 
-  button {
-    position: absolute;
-    padding: .6rem 0.5rem .5rem;
-    right: 1rem;
-    top: 1rem;
+  .exitButton {
+    width: 64px;
+    height: 64px;
+    margin: 1.5rem auto;
     background: none;
-    border: none;
+    border-radius: 64px;
+    border: 1px solid color.$dark;
     box-shadow: .5px .5px 3px color.$dark;
+    transition: all ease-out .5s;
 
     &:hover,
     &:active {
       cursor: pointer;
       box-shadow: .5px .5px 1px color.$dark;
+      background: rgba(72,60,70, .1);
     }
   }
 
@@ -78,35 +91,52 @@
     margin-bottom: 2rem;
   }
 
-  a {
-    display: inline-block;
+  .trackList {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h5 {
+    font-weight: 400;
     font-size: 1.25rem;
-    padding: 0.5rem 1rem;
-    box-shadow: .5px .5px 3px color.$dark;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 0rem;
+    margin-bottom: .5rem;
+    
     svg {
-      margin-left: 0.5rem;
+      height: 18.45px;
+      width: 18.45px;
+      margin-top: 0.5rem;
     }
 
     &:hover,
     &:active {
       cursor: pointer;
-      background: #ffe3df;
-      box-shadow: .5px .5px 1px color.$dark;
+      text-decoration: underline;
     }
   }
 
-  @include breakpoint.md {
-    width: 50%;
-  }
+  // @include breakpoint.md {
+  //   width: 50%;
+  // }
 
   @include breakpoint.lg {
-    text-align: left;
-    top: 8rem;
-    margin: 0 4rem;
-    padding: 4rem 3rem;
-  }
+    padding: 3rem 3rem 1.5rem;
+    width: 66%;
+    margin: 5rem auto;
+    transform: translateY(-50%);
 
-  @include breakpoint.xl {
-    top: 12rem;
+    a {
+      font-size: 1.25rem;
+    }
   }
 }
