@@ -47,7 +47,7 @@ export const sync = [
     id: 1,
     name: "Reverie",
     description: '"Working together with Levi to compose music for our projects is always a wonderful experience. His creative process invites collaboration and opportunity for exploration curiosity. His attention to detail and willingness to go the extra mile is evident. Levi\'s musical ability as far as composition and producing has simply elevated our work to a new level."',
-    role: "Tracking & Mixing",
+    role: "Composition, Production, & Mixing",
     trackList: [
       {
         title: "Lebanon Valley College MBA PROGRAM",
@@ -62,8 +62,8 @@ export const sync = [
   {
     id: 2,
     name: "Lancaster Distillery",
-    description: "Working with Levi has expanded my musical palette and taken my songs to another level. Levi is well-versed in songwriting, engineering, and mixing, and uses a combination of analog and digital equipment to offer a wide range of sonic options to the artist. Levi has great intuition when it comes to songwriting and encourages both structure and experimentation in the recording process. Most importantly, Levi is open-minded and fully supports the artist in fulfilling their creative vision. His end goal is to provide the tools and input to help you get there.",
-    role: "Tracking & Mixing",
+    description: "NEED DESC",
+    role: "Production, Tracking, & Mixing",
     trackList: [
       {
         title: "Brand Intro",

@@ -104,24 +104,29 @@
 
   a {
     display: flex;
-    flex-direction: column;
+    text-align: end;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
     font-size: 1rem;
     font-weight: bold;
     padding: 0.5rem 0rem;
     margin-bottom: .5rem;
     
     svg {
-      height: 18.45px;
-      width: 18.45px;
-      margin-top: 0.5rem;
+      height: 24px;
+      width: 24px;
+      margin-left: .5rem;
+      transition: transform ease-out .5s;
     }
 
     &:hover,
     &:active {
       cursor: pointer;
       text-decoration: underline;
+
+      svg {
+        transform: scale(1.1);
+      }
     }
   }
 
