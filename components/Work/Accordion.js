@@ -7,7 +7,7 @@ const variants = {
   children: {
     initial: {
       opacity: 0,
-      y: 50
+      y: 50,
     },
     animate: {
       opacity: 1,
@@ -16,27 +16,27 @@ const variants = {
         type: "spring",
         damping: 10,
         stiffness: 70,
-      }
-    }
+      },
+    },
   },
   linkContainer: {
     initial: {
-      scaleY: 0
+      scaleY: 0,
     },
     animate: {
       scaleY: 1,
       transition: {
         when: "beforeChildren",
-        duration: .1,
+        duration: 0.1,
         ease: "easeOut",
-        staggerChildren: .2
-      }
+        staggerChildren: 0.2,
+      },
     },
   },
   links: {
     initial: {
       y: -30,
-      opacity: 0
+      opacity: 0,
     },
     animate: {
       y: 0,
@@ -44,8 +44,8 @@ const variants = {
       transition: {
         type: "spring",
         damping: 10,
-        stiffness: 90
-      }
+        stiffness: 90,
+      },
     },
     exit: {
       y: -30,
@@ -53,11 +53,11 @@ const variants = {
       transition: {
         type: "spring",
         damping: 10,
-        stiffness: 90
-      }
-    }
-  }
-}
+        stiffness: 90,
+      },
+    },
+  },
+};
 
 const Accordion = ({
   header,
@@ -67,13 +67,10 @@ const Accordion = ({
   setActive,
 }) => {
   return (
-    
     <motion.div className={styles.accordion} variants={variants.children}>
       <div className={styles.accordionHeader} onClick={() => setActive(header)}>
         <h3>{header}</h3>
-        <button
-          className={styles.accordionArrow}
-        >
+        <button className={styles.accordionArrow}>
           {activeAccordion === header ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -108,24 +105,33 @@ const Accordion = ({
         </button>
       </div>
       <AnimatePresence>
-      {activeAccordion === header && (
-       
-        <div className={styles.listContainer} >
-           
-          <motion.ol dir="rtl" className={styles.exampleList} variants={variants.linkContainer} initial="initial" animate="animate" exit="exit">
-            {data.map((entry) => {
-              return (
-                <motion.li key={entry.id} variants={variants.links} exit={{y: -5, opacity: 0}}>
-                  <button onClick={() => handleClick(entry)}>
-                    {entry.name}
-                  </button>
-                </motion.li>
-              );
-            })}
-          </motion.ol>
-          
-        </div>
-      )}
+        {activeAccordion === header && (
+          <div className={styles.listContainer}>
+            <motion.ul
+              dir="rtl"
+              className={styles.exampleList}
+              variants={variants.linkContainer}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              {data.map((entry) => {
+                return (
+                  <motion.li
+                    key={entry.id}
+                    variants={variants.links}
+                    exit={{ y: -5, opacity: 0 }}
+                  >
+                    <button onClick={() => handleClick(entry)}>
+                      {entry.name}
+                    </button>
+                    <img src="/images/3.svg" alt="Click for work!" />
+                  </motion.li>
+                );
+              })}
+            </motion.ul>
+          </div>
+        )}
       </AnimatePresence>
     </motion.div>
   );
