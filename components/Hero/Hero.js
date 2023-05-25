@@ -66,8 +66,8 @@ const Hero = () => {
             <span>By</span> Levi Schlosser
           </motion.p>
           <motion.p variants={variants.children} className={styles.bio}>
-            I get quite the dopamine boost from tracking, mixing, and creating
-            music for visual storytellers. After all music should make us come
+            I get quite the dopamine boost from tracking, mixing, as well as creating
+            music for visual storytellers. After all, music should make us come
             alive! For me, nothing is more rewarding than catching and
             interpreting someone else’s vision for their song and helping them
             reach that goal quickly and creatively. That is the heart of Hear

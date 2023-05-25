@@ -34,26 +34,39 @@
 }
 
 .listContainer {
-  padding-right: 4rem;
   margin-top: .5rem;
+  // margin-right: 2.75rem;
   transform-origin: top;
 
-  ol {
+  ul {
     font-family: bdr-mono, sans-serif;
-    list-style-type: decimal-leading-zero;
+    list-style-type: none;
+    margin-right: 0;
+    padding-right: 0;
     font-size: 1.25rem;
     font-weight: bold;
   }
 
   li {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0;
+    padding-right: 0;
     transition: color ease-out .5s;
+    img {
+      margin-left: 1rem;
+      height: 32px;
+      width: auto;
+    }
   }
 
-  ol li:not(:first-child) {
-    margin-top: .25rem;
+  ul li:not(:first-child) {
+    margin-top: .5rem;
   }
 
-  ol li:hover, button {
+  ul li:hover, button:hover {
     cursor: pointer;
     color: color.$blue;
   }

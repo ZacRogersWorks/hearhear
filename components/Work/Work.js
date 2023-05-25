@@ -48,6 +48,7 @@ const variants = {
         when: "beforeChildren",
         duration: 0.3,
         ease: "easeOut",
+        staggerChildren: .2,
       },
     },
     exit: {
@@ -68,6 +69,7 @@ const variants = {
         type: "spring",
         damping: 10,
         stiffness: 70,
+        staggerChildren: .2
       },
     },
   },
