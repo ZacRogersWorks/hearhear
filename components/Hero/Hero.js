@@ -62,25 +62,22 @@ const Hero = () => {
             <motion.p variants={variants.children}>TRACKING</motion.p>
             <motion.p variants={variants.children}>MIXING</motion.p>
           </div>
-          <motion.p variants={variants.children} className={styles.byLevi}>
-            <span>By</span> Levi Schlosser
-          </motion.p>
+
           <motion.p variants={variants.children} className={styles.bio}>
-            I get quite the dopamine boost from tracking, mixing, as well as creating
-            music for visual storytellers. After all, music should make us come
-            alive! For me, nothing is more rewarding than catching and
-            interpreting someone else’s vision for their song and helping them
-            reach that goal quickly and creatively. That is the heart of Hear
-            Hear Productions. I hope that I
-            can help put your story and your song in the best light.
-            <br />
-            <br />
-            Currently working at a private owner-operated analog recording
-            studio,{" "}
-            <a href="http://www.thesugartank.com/" target="_blank">
-              The Sugar Tank,
-            </a>{" "}
-            located in Lancaster, Pa.
+            Hear Hear (formerly The SugarTank) is an owner operated analog studio run by Levi
+            Schlosser. Levi has over 10 years of experience tracking, mixing, and producing. 
+            <br/><br/>
+            &ldquo;I get
+            quite the dopamine boost from tracking, mixing, and creating music
+            for visual storytellers. After all, music should make us come alive!
+            For me, nothing is more rewarding than catching and interpreting
+            someone else’s vision for their song and helping them reach that
+            goal quickly and creatively. That is the heart here at The
+            SugarTank. Thank you for checking out the site I hope that I can
+            help put your story and your song in the best possible light.&ldquo;
+            <br/>-Levi Schlosser<br/><br/>
+            To get in touch
+            fill out the contact form below.
           </motion.p>
         </motion.div>
       </div>
