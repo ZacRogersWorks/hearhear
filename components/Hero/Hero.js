@@ -67,14 +67,14 @@ const Hero = () => {
             Hear Hear (formerly The SugarTank) is an owner operated analog studio run by Levi
             Schlosser. Levi has over 10 years of experience tracking, mixing, and producing. 
             <br/><br/>
-            “I get
+            &ldquo;I get
             quite the dopamine boost from tracking, mixing, and creating music
             for visual storytellers. After all, music should make us come alive!
             For me, nothing is more rewarding than catching and interpreting
             someone else’s vision for their song and helping them reach that
             goal quickly and creatively. That is the heart here at The
             SugarTank. Thank you for checking out the site I hope that I can
-            help put your story and your song in the best possible light."
+            help put your story and your song in the best possible light.&ldquo;
             <br/>-Levi Schlosser<br/><br/>
             To get in touch
             fill out the contact form below.
