@@ -28,8 +28,16 @@
     flex-direction: column;
 
     .location {
+      display: flex;
+      flex-direction: column;
       align-self: flex-start;
       margin-bottom: 1.5rem;
+
+      svg {
+        margin-bottom: .25rem;
+        height: 12px;
+        width: 12px;
+      }
     }
 
     .headingCaption {
@@ -98,6 +106,7 @@
 
     .container {
       .location {
+        align-items: end;
         align-self: flex-end;
         text-align: end;
       }
