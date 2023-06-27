@@ -72,16 +72,18 @@ const Footer = () => {
         <motion.p variants={variants.fromRight}>LANCASTER, PA</motion.p>
         <motion.a
           className={styles.sugartank}
-          href="http://www.thesugartank.com/"
+          href="https://goo.gl/maps/6jiNe3Mh6s5TM6hp6"
           target="_blank"
           variants={variants.fromRight}
         >
-          @ The Sugar Tank
+          252 N Queen St
+          <br/>
+          Lancaster, PA 17602
         </motion.a>
 
         <motion.div className={styles.copyright} variants={variants.fromRight}>
           <p>
-            <span>©</span> 2023 Hear Hear
+            <span>©</span> {new Date().getFullYear()} Hear Hear
           </p>
           <p>
             Site designed & developed by{" "}

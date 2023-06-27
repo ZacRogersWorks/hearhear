@@ -29,6 +29,7 @@
 
     .location {
       align-self: flex-start;
+      margin-bottom: 1.5rem;
     }
 
     .headingCaption {
@@ -98,6 +99,7 @@
     .container {
       .location {
         align-self: flex-end;
+        text-align: end;
       }
 
       .bio {

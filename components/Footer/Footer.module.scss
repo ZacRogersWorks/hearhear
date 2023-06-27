@@ -60,7 +60,8 @@
     }
 
     .sugartank {
-      align-self: flex-end;
+      text-align: center;
+      align-self: center;
       margin-top: 1rem;
       text-decoration: underline;
     }
@@ -106,6 +107,11 @@
 
       .container {
         align-items: flex-end;
+      }
+
+      .sugartank {
+        align-self: flex-end;
+        text-align: end;
       }
 
       .copyright {

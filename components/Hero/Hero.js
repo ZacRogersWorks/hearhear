@@ -50,9 +50,16 @@ const Hero = () => {
           initial="initial"
           animate="animate"
         >
-          <motion.p className={styles.location} variants={variants.children}>
-            Lancaster, PA
-          </motion.p>
+          <motion.a
+          className={styles.location}
+          href="https://goo.gl/maps/6jiNe3Mh6s5TM6hp6"
+          target="_blank"
+          variants={variants.children}
+        >
+          252 N Queen St
+          <br/>
+          Lancaster, PA 17602
+        </motion.a>
           <h1>
             <span>HEAR</span>
             <span>HEAR</span>
